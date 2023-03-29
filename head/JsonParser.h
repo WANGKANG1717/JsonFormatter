@@ -1,3 +1,11 @@
+/**
+ * @author: WangKang
+ * @date: 2023-03-29 18:31:47
+ * @blog: kang17.xyz
+ * @filepath: head\JsonParser.h
+ * @description:
+ * Copyright 2023 WANGKANG, All Rights Reserved.
+ */
 #ifndef __JSONPARSER_H__
 #define __JSONPARSER_H__
 #include <cctype>

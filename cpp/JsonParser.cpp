@@ -1,3 +1,11 @@
+/**
+ * @author: WangKang
+ * @date: 2023-03-29 18:32:07
+ * @blog: kang17.xyz
+ * @filepath: cpp\JsonParser.cpp
+ * @description:
+ * Copyright 2023 WANGKANG, All Rights Reserved.
+ */
 #include "../head/JsonParser.h"
 
 JsonParser::JsonParser(string filePath) {

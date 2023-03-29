@@ -14,7 +14,7 @@
 using namespace std;
 
 int main() {
-    JsonParser jsonParser("resource/test5.json");
+    JsonParser jsonParser("resource/test7.json");
     // cout << jsonParser.getJsonBlank() << endl;
     cout << jsonParser.getJsonFormat() << endl;
     // cout << jsonParser.getJsonFormat() << endl;
@@ -23,6 +23,6 @@ int main() {
     // jsonParser.setPath("resource/test2.json");
     // cout << jsonParser.getJson() << endl;
     // cout << jsonParser.getJsonBlank() << endl;
-    // return 0;
     jsonParser.saveAs("resource/testFormat.json");
+    return 0;
 }

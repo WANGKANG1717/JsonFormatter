@@ -14,6 +14,7 @@ JsonParser::JsonParser(string filePath) {
     }
     fin.close();
     removeBlank();
+    // cout << jsonBlank << endl;
     parserJsonBlank();
 }
 JsonParser::JsonParser() {
@@ -60,6 +61,7 @@ void JsonParser::parserJsonBlank() {
     int i = 0;
     int flag = 0;
     while (i < jsonBlank.size()) {
+        // cout << jsonFormat << endl;
         if (jsonBlank[i] == '{' || jsonBlank[i] == '[') {
             if (flag == 0) jsonFormat.append(tap(tapCount));
             jsonFormat.push_back(jsonBlank[i]);
@@ -119,6 +121,12 @@ void JsonParser::parserJsonBlank() {
             // 消除不合理的末尾 ]}不换行
             if (jsonBlank[i] == ']' || jsonBlank[i] == '}') {
                 jsonFormat.push_back('\n');
+            }
+            flag = 0;
+        } else if (isalpha(jsonBlank[i]) && flag == 0) {  // null
+            jsonFormat.append(tap(tapCount));
+            while (isalpha(jsonBlank[i])) {
+                jsonFormat.push_back(jsonBlank[i++]);
             }
             flag = 0;
         } else if (jsonBlank[i] == ',') {

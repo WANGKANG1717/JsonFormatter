@@ -12,6 +12,7 @@ JsonParser::JsonParser(string filePath) {
     while ((c = fin.get()) != EOF) {
         json.push_back(c);
     }
+    fin.close();
     removeBlank();
     parserJsonBlank();
 }
@@ -28,11 +29,6 @@ void JsonParser::removeBlank() {
         }
     }
 }
-void JsonParser::parserJsonBlank() {
-    // jsonFormat.clear();
-    // for (int i = 0; i < jsonBlank.size(); i++) {
-    // }
-}
 string JsonParser::getJson() {
     return json;
 }
@@ -47,4 +43,104 @@ string JsonParser::getPath() {
 }
 void JsonParser::setPath(string filePath) {
     (*this) = JsonParser(filePath);
+}
+
+string JsonParser::tap(int num) {
+    string s = "";
+    // string empty="    ";
+    for (int i = 0; i < num; i++) {
+        s.push_back('\t');
+    }
+    return s;
+}
+
+void JsonParser::parserJsonBlank() {
+    jsonFormat.clear();
+    int tapCount = 0;
+    int i = 0;
+    int flag = 0;
+    while (i < jsonBlank.size()) {
+        if (jsonBlank[i] == '{' || jsonBlank[i] == '[') {
+            if (flag == 0) jsonFormat.append(tap(tapCount));
+            jsonFormat.push_back(jsonBlank[i]);
+            jsonFormat.push_back('\n');
+            tapCount++;
+            flag = 0;
+            i++;
+        } else if (jsonBlank[i] == ']' || jsonBlank[i] == '}') {
+            tapCount--;
+            jsonFormat.append(tap(tapCount));
+            jsonFormat.push_back(jsonBlank[i]);
+            if (jsonBlank[i + 1] == ',') {
+                jsonFormat.push_back(',');
+                i++;
+            }
+            jsonFormat.push_back('\n');
+            flag = 0;
+            i++;
+        } else if (jsonBlank[i] == '\"' && flag == 0) {  // 说明是标签
+            jsonFormat.append(tap(tapCount));
+            jsonFormat.push_back(jsonBlank[i++]);
+            while (jsonBlank[i] != '\"') {
+                jsonFormat.push_back(jsonBlank[i++]);
+            }
+            jsonFormat.push_back(jsonBlank[i++]);
+            if (jsonBlank[i] == ':') {
+                jsonFormat.append(": ");
+            } else if (jsonBlank[i] == ',') {
+                jsonFormat.append(", ");
+            }
+            i++;
+            flag = 1;
+        } else if (jsonBlank[i] == '\"' && flag == 1) {  // 字符数据
+            jsonFormat.push_back(jsonBlank[i++]);
+            while (jsonBlank[i] != '\"') {
+                jsonFormat.push_back(jsonBlank[i++]);
+            }
+            jsonFormat.push_back(jsonBlank[i++]);
+            // 消除不合理的末尾 ]}不换行
+            if (jsonBlank[i] == ']' || jsonBlank[i] == '}') {
+                jsonFormat.push_back('\n');
+            }
+            flag = 0;
+        } else if (isdigit(jsonBlank[i]) && flag == 1) {  // 数字数据
+            while (isdigit(jsonBlank[i])) {
+                jsonFormat.push_back(jsonBlank[i++]);
+            }
+            // 消除不合理的末尾 ]}不换行
+            if (jsonBlank[i] == ']' || jsonBlank[i] == '}') {
+                jsonFormat.push_back('\n');
+            }
+            flag = 0;
+        } else if (isalpha(jsonBlank[i]) && flag == 1) {  // true false
+            while (isalpha(jsonBlank[i])) {
+                jsonFormat.push_back(jsonBlank[i++]);
+            }
+            // 消除不合理的末尾 ]}不换行
+            if (jsonBlank[i] == ']' || jsonBlank[i] == '}') {
+                jsonFormat.push_back('\n');
+            }
+            flag = 0;
+        } else if (jsonBlank[i] == ',') {
+            jsonFormat.append(",\n");
+            flag = 0;
+            i++;
+            cout << "dadadasad" << endl;
+        }
+    }
+}
+
+void JsonParser::save() {
+}
+void JsonParser::saveAs(string filePath) {
+    ofstream fout;
+    fout.open(filePath.c_str(), ios::out | ios::trunc);  // 覆盖写
+    if (!fout.is_open()) {
+        cout << "cannot open the file" << endl;
+    }
+    for (int i = 0; i < jsonFormat.size(); i++) {
+        fout.put(jsonFormat[i]);
+    }
+    fout.close();
+    cout << "saveAs file success!" << endl;
 }

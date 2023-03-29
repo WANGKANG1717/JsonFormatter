@@ -14,11 +14,15 @@
 using namespace std;
 
 int main() {
-    JsonParser jsonParser("resource/test.json");
+    JsonParser jsonParser("resource/test5.json");
+    // cout << jsonParser.getJsonBlank() << endl;
+    cout << jsonParser.getJsonFormat() << endl;
+    // cout << jsonParser.getJsonFormat() << endl;
     // cout << jsonParser.getJson() << endl;
     // cout << jsonParser.getJsonBlank() << endl;
-    // jsonParser.setPath("test2.json");
+    // jsonParser.setPath("resource/test2.json");
     // cout << jsonParser.getJson() << endl;
     // cout << jsonParser.getJsonBlank() << endl;
-    return 0;
+    // return 0;
+    jsonParser.saveAs("resource/testFormat.json");
 }

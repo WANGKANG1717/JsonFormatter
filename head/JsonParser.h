@@ -22,5 +22,8 @@ class JsonParser {
     string getJsonFormat();
     string getPath();
     void setPath(string filePath);
+    string tap(int num);
+    void save();
+    void saveAs(string filePath);
 };
 #endif

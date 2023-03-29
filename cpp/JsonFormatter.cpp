@@ -6,9 +6,9 @@
  * @description:
  * Copyright 2023 WANGKANG, All Rights Reserved.
  */
-#include "../head/JsonParser.h"
+#include "../head/JsonFormatter.h"
 
-JsonParser::JsonParser(string filePath) {
+JsonFormatter::JsonFormatter(string filePath) {
     path = filePath;
     ifstream fin;
     fin.open(path.c_str(), ios::in);
@@ -25,11 +25,11 @@ JsonParser::JsonParser(string filePath) {
     // cout << jsonBlank << endl;
     parserJsonBlank();
 }
-JsonParser::JsonParser() {
+JsonFormatter::JsonFormatter() {
     path = "";
 }
 // 去掉所有空白符
-void JsonParser::removeBlank() {
+void JsonFormatter::removeBlank() {
     jsonBlank.clear();
     for (int i = 0; i < json.size(); i++) {
         // 非空白符
@@ -38,23 +38,23 @@ void JsonParser::removeBlank() {
         }
     }
 }
-string JsonParser::getJson() {
+string JsonFormatter::getJson() {
     return json;
 }
-string JsonParser::getJsonBlank() {
+string JsonFormatter::getJsonBlank() {
     return jsonBlank;
 }
-string JsonParser::getJsonFormat() {
+string JsonFormatter::getJsonFormat() {
     return jsonFormat;
 }
-string JsonParser::getPath() {
+string JsonFormatter::getPath() {
     return path;
 }
-void JsonParser::setPath(string filePath) {
-    (*this) = JsonParser(filePath);
+void JsonFormatter::setPath(string filePath) {
+    (*this) = JsonFormatter(filePath);
 }
 
-string JsonParser::tap(int num) {
+string JsonFormatter::tap(int num) {
     string s = "";
     // string empty="    ";
     for (int i = 0; i < num; i++) {
@@ -63,7 +63,7 @@ string JsonParser::tap(int num) {
     return s;
 }
 
-void JsonParser::parserJsonBlank() {
+void JsonFormatter::parserJsonBlank() {
     jsonFormat.clear();
     int tapCount = 0;
     int i = 0;
@@ -146,9 +146,9 @@ void JsonParser::parserJsonBlank() {
     }
 }
 
-void JsonParser::save() {
+void JsonFormatter::save() {
 }
-void JsonParser::saveAs(string filePath) {
+void JsonFormatter::saveAs(string filePath) {
     ofstream fout;
     fout.open(filePath.c_str(), ios::out | ios::trunc);  // 覆盖写
     if (!fout.is_open()) {

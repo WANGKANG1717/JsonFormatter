@@ -1,74 +1,25 @@
 {
-	"menu": {
-		"header": "SVGViewer",
-		"items": [
-			{
-				"id": "Open"
-			},
-			null,
-			{
-				"id": "OpenNew",
-				"label": "OpenNew"
-			},
-			{
-				"id": "ZoomIn",
-				"label": "ZoomIn"
-			},
-			{
-				"id": "ZoomOut",
-				"label": "ZoomOut"
-			},
-			{
-				"id": "OriginalView",
-				"label": "OriginalView"
-			},
-			{
-				"id": "Quality"
-			},
-			{
-				"id": "Pause"
-			},
-			{
-				"id": "Mute"
-			},
-			{
-				"id": "Find",
-				"label": "Find..."
-			},
-			{
-				"id": "FindAgain",
-				"label": "FindAgain"
-			},
-			{
-				"id": "Copy"
-			},
-			{
-				"id": "CopyAgain",
-				"label": "CopyAgain"
-			},
-			{
-				"id": "CopySVG",
-				"label": "CopySVG"
-			},
-			{
-				"id": "ViewSVG",
-				"label": "ViewSVG"
-			},
-			{
-				"id": "ViewSource",
-				"label": "ViewSource"
-			},
-			{
-				"id": "SaveAs",
-				"label": "SaveAs"
-			},
-			{
-				"id": "Help"
-			},
-			{
-				"id": "About",
-				"label": "AboutAdobeCVGViewer..."
-			}
-		]
-	}
+	"name": "BeJson",
+	"url": "http://www.bejson.com",
+	"page": 88,
+	"isNonProfit": true,
+	"address": {
+		"street": "科技园路",
+		"city": "江苏苏州",
+		"country": "中国"
+	},
+	"links": [
+		{
+			"name": "Google",
+			"url": "http://www.google.com"
+		},
+		{
+			"name": "Baidu",
+			"url": "http://www.baidu.com"
+		},
+		{
+			"name": "SoSo",
+			"url": "http://www.SoSo.com"
+		}
+	]
 }

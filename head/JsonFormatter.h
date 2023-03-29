@@ -13,7 +13,7 @@
 #include <iostream>
 #include <string>
 using namespace std;
-class JsonParser {
+class JsonFormatter {
    private:
     string json;        // 存储json
     string jsonBlank;   // 存储去掉空白符的json
@@ -21,8 +21,8 @@ class JsonParser {
     string path;        // 文件路径
 
    public:
-    JsonParser(string path);
-    JsonParser();
+    JsonFormatter(string path);
+    JsonFormatter();
     void removeBlank();      // 去掉所有空白符
     void parserJsonBlank();  // 将jsonBlank格式化
     string getJson();

@@ -9,20 +9,13 @@
 #include <iostream>
 #include <string>
 
-#include "./cpp/JsonParser.cpp"
-#include "./head/JsonParser.h"
+#include "cpp/JsonFormatter.cpp"
+#include "head/JsonFormatter.h"
 using namespace std;
 
 int main() {
-    JsonParser jsonParser("resource/test7.json");
-    // cout << jsonParser.getJsonBlank() << endl;
-    cout << jsonParser.getJsonFormat() << endl;
-    // cout << jsonParser.getJsonFormat() << endl;
-    // cout << jsonParser.getJson() << endl;
-    // cout << jsonParser.getJsonBlank() << endl;
-    // jsonParser.setPath("resource/test2.json");
-    // cout << jsonParser.getJson() << endl;
-    // cout << jsonParser.getJsonBlank() << endl;
-    jsonParser.saveAs("resource/testFormat.json");
+    JsonFormatter jsonFormatter("resource/test1.json");
+    cout << jsonFormatter.getJsonFormat() << endl;
+    jsonFormatter.saveAs("resource/testFormat.json");
     return 0;
 }

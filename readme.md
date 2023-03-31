@@ -6,24 +6,24 @@
 
 ### test1格式化前
 
-<img src="imgs\test1Before.png" width="350" alt="test1Before"></img>
+![test1Before](imgs/test1Before.png)
 
 ### test1格式化后
 
-<img src="imgs\test1After.png" width="350" alt="test1After"></img>
+![test1After](imgs/test1After.png)
 
 ### test3格式化前
 
-<img src="imgs\test3Before.png" width="350" alt="test3Before"></img>
+![test3Before](imgs/test3Before.png)
 
 ### test3格式化后
 
-<img src="imgs\test3After.png" width="350" alt="test3After"></img>
+![test3After](imgs/test3After.png)
 
 ### test7格式化前
 
-<img src="imgs\test5Before.png" width="350" alt="test5Before"></img>
+![test7Before](imgs/test7Before.png)
 
 ### test7格式化后
 
-<img src="imgs\test5After.png" width="350" alt="test5After"></img>
+![test7After](imgs/test7After.png)
